@@ -1,16 +1,15 @@
 .post {
   border: 1px lightgrey solid;
   background-color: white;
-  max-width: 550px;
-  margin-bottom: 45px;
+  max-width: 600px;
+  width: 90%;
 }
 
-img {
+.post img {
   width: 100%;
   border-bottom: 1px solid lightgrey;
   border-top: 1px solid lightgrey;
   object-fit: contain;
-  background-color: black;
 }
 
 h4 {
@@ -21,7 +20,7 @@ h4 {
 .post__header {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
 }
 
 .post__header h3 {

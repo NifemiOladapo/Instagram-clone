@@ -1,0 +1,23 @@
+form{
+    display : flex;
+    flex-direction: column;
+    gap : 15px;
+    width : 100%;
+    align-items: center;
+}
+
+.an__input__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap : 5px;
+    width : 100%
+}
+
+button{
+    width: 100%;
+}
+
+input{
+height: 20px;
+outline-width: 0;
+}

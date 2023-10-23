@@ -1,0 +1,8 @@
+.post__renderer{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 50px 0px;
+    justify-content: center;
+    align-items: center;
+}
