@@ -9,7 +9,7 @@ import {
   uploadBytes,
   uploadBytesResumable,
 } from "firebase/storage";
-import "../Styles/PostUploader.css";
+import classes from "../Styles/PostUploader.module.css";
 
 const PostUploader = () => {
   const { user } = useContext(AppContext);
@@ -19,14 +19,17 @@ const PostUploader = () => {
   const [progress, setProgress] = useState(0);
 
   const uploadPost = (imageUrl) => {
+    console.log("Updating database...");
     db.collection("posts").add({
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       caption,
       imageUrl,
       username: user.displayName,
+
     });
-    setImage(null);
+    setImage("");
     setCaption("");
+    setProgress(0);
   };
 
   const handleUpload = () => {
@@ -37,17 +40,16 @@ const PostUploader = () => {
       const imageRef = ref(storage, `images/${image.name}`);
       uploadBytesResumable(imageRef, image).on(
         "state_changed",
-        (snapShot) => {
+        async (snapShot) => {
           const calculatedProgress = Math.round(
             (snapShot.bytesTransferred / snapShot.totalBytes) * 100
           );
           setProgress(calculatedProgress);
-          getDownloadURL(imageRef).then((imgUrl) => {
-            console.log(imgUrl);
-            uploadPost(imgUrl);
-          });
+          const imgUrl = await getDownloadURL(imageRef);
+          console.log(imgUrl);
+          uploadPost(imgUrl);
         },
-        (error) => alert("Error getting download url",error.message)
+        (error) => alert("Error getting download url", error.message)
       );
     } else {
       uploadPost("");
@@ -55,21 +57,22 @@ const PostUploader = () => {
   };
 
   return (
-    <div className="post__uploader">
-      <div className="inputs__wrapper">
-        <input
-          placeholder="Place a caption ..."
-          type="text"
-          value={caption}
-          onChange={(e) => setCaption(e.target.value)}
-        />
-        <input
-          type="file"
-          onChange={(e) => {
-            setImage(e.target.files[0]);
-          }}
-        />
-      </div>
+    <div className={classes.post__uploader}>
+      {/* <div className="inputs__wrapper"> */}
+      <progress color="red" value={progress} max={100} />
+      <input
+        placeholder="Place a caption ..."
+        type="text"
+        value={caption}
+        onChange={(e) => setCaption(e.target.value)}
+      />
+      <input
+        type="file"
+        onChange={(e) => {
+          setImage(e.target.files[0]);
+        }}
+      />
+      {/* </div> */}
 
       <Button onClick={handleUpload}>UPLOAD</Button>
     </div>

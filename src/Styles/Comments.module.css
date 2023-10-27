@@ -1,0 +1,25 @@
+.comments{
+    border-top: 1px solid lightgrey;
+    padding: 15px;
+    width: 100%;
+}
+
+.comments > .comment__form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.comments > .comment__form > input{
+    /* background-color: red; */
+    outline-width: 0;
+    border: 1px solid grey;
+    padding: 10px;
+    flex: 1;
+}
+
+.comments button{
+    flex: 0;
+    padding: 3px 5px ;
+    cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.post__uploader {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px grey solid;
+    align-items: centers;
+    background-color: white;
+    padding: 10px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.post__uploader > progress{
+    width: 100%;
+    max-width : 500px;
+    padding: 10px;
+    align-self: center;
+}
+
+.post__uploader > input{
+    width: 100%;
+    max-width: 500px;
+    align-self: center;
+    outline-width: 0;
+    padding: 10px 5px;
+}
+
+.post__uploader button{
+    /* background-color: red; */
+    /* padding: 5px; */
+}

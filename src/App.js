@@ -49,7 +49,7 @@ function App() {
         <Header />
           <PostsRenderer />
 
-          {user ? <PostUploader /> : <h3>Please Login To Upload</h3>}
+          {user ? <PostUploader /> : <h3 style={{textAlign : "center"}}>Please Sign In To Upload</h3>}
       </AppContext.Provider>
     </div>
   );

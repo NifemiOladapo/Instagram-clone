@@ -1,6 +1,6 @@
 import { Box, Modal, Input, Typography, Button } from "@material-ui/core";
 import { useState } from "react";
-import "../Styles/ModalBox.css";
+import classes from "../Styles/ModalBox.module.css";
 import { auth } from "../firebase";
 import { useEffect } from "react";
 import { useContext } from "react";
@@ -27,9 +27,9 @@ const SignInModal = () => {
   };
 
   return (
-    <div>
+    <div className={classes.modal}>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
-      <Modal
+      <Modal 
         open={signInModalIsOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -47,15 +47,16 @@ const SignInModal = () => {
             border: "2px solid #000",
           }}
         >
+          <h1 style={{textAlign : "center"}}>Sign In</h1>
           <form onSubmit={signInFunc}>
-            <div className="an__input__wrapper">
+            <div className={classes.an__input__wrapper}>
               {/* <Input
                 placeholder="Input your name"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
              /> */}
             </div>
-            <div className="an__input__wrapper">
+            <div  className={classes.an__input__wrapper}>
               <Input
                 value={email}
                 type="email"
@@ -63,7 +64,7 @@ const SignInModal = () => {
                 placeholder="Input your email"
               />
             </div>
-            <div className="an__input__wrapper">
+            <div  className={classes.an__input__wrapper}>
               <Input
               type="password"
                 placeholder="Input your Password"

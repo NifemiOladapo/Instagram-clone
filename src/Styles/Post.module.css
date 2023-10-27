@@ -1,28 +1,32 @@
 .post {
   border: 1px lightgrey solid;
   background-color: white;
-  max-width: 600px;
-  width: 90%;
+  /* max-width: 600px; */
+  width: 600px;
+  padding: 20px;
 }
 
 .post img {
   width: 100%;
   border-bottom: 1px solid lightgrey;
-  border-top: 1px solid lightgrey;
   object-fit: contain;
 }
 
-h4 {
+.post p {
   font-weight: normal;
   padding: 20px;
+
 }
 
-.post__header {
+.post .post__header {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
+  border-bottom: 1px solid lightgrey;
+
 }
 
 .post__header h3 {
   margin-left: 10px;
+  text-transform: capitalize;
 }
